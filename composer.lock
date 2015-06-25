@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a49233b82368644d09413aa81dcf0fae",
+    "hash": "a73d4b9b182de761b12b8325967fa6dc",
     "packages": [
         {
             "name": "pxn/phputils",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PoiXson/phpUtils.git",
-                "reference": "aeceab3c21a84798fd6fded7348b82db0a0fdb13"
+                "reference": "4864a7bd4f0af7eb51562b74427bde82710bdf47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PoiXson/phpUtils/zipball/aeceab3c21a84798fd6fded7348b82db0a0fdb13",
-                "reference": "aeceab3c21a84798fd6fded7348b82db0a0fdb13",
+                "url": "https://api.github.com/repos/PoiXson/phpUtils/zipball/4864a7bd4f0af7eb51562b74427bde82710bdf47",
+                "reference": "4864a7bd4f0af7eb51562b74427bde82710bdf47",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
             ],
             "description": "PHP Utils for PoiXson projects",
             "homepage": "http://poixson.com/",
-            "time": "2015-06-25 07:05:03"
+            "time": "2015-06-25 21:13:30"
         }
     ],
     "packages-dev": [
