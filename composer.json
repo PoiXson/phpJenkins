@@ -21,8 +21,8 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"pxn\\phpUtils\\tests\\":    "tests/",
-			"pxn\\phpUtils\\Examples\\": "examples/"
+			"pxn\\phpJenkins\\tests\\":    "tests/",
+			"pxn\\phpJenkins\\Examples\\": "examples/"
 		}
 	},
 	"archive": {
