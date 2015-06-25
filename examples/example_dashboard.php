@@ -20,8 +20,8 @@ const EOL = \pxn\phpUtils\Defines::EOL;
 const TAB = \pxn\phpUtils\Defines::TAB;
 
 try {
-	$source = Source::getByHost('ci.poixson.com');
-	$dash = $source->getDashboard();
+	$source = Source::getByHost('127.0.0.1:8080');
+	$dash = new Dashboard($source);
 	$jobs = $dash->getJobs();
 
 	echo '<table border="1" cellpadding="10" width="500">'.EOL;
