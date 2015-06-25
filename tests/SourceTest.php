@@ -38,6 +38,27 @@ class SourceTest extends \PHPUnit_Framework_TestCase {
 		$this->assertNotNull($source);
 		$this->assertEquals('http://'.self::TEST_HOST, $source->getURL());
 	}
+
+
+
+	public function testSource_EmptyJson() {
+		$source = new SourceFakeBlank(self::TEST_HOST);
+		$this->assertNotNull($source);
+		try {
+			$source->getJson();
+		} catch (SourceNotAvailableException $e) {
+			$this->assertEquals(
+					\sprintf('Source could not be downloaded '.
+							'from http://%s/view/All/api/json/?pretty=true',
+							self::TEST_HOST),
+					$e->getMessage()
+			);
+			return;
+		}
+	}
+
+
+
 	/**
 	 * @covers ::getByHost
 	 */
