@@ -21,16 +21,15 @@ class Source {
 	public static function getByHost($host, $ssl=FALSE) {
 		if(empty($host))
 			throw new SourceNotAvailableException('Source host must be provided!');
-		if(\strpos($host, '://') === FALSE)
-			$url = 'http'.($ssl ? 's' : '' ).'://'.$host;
-		else
-			$url = $host;
-		return new static($url);
+		return new static($host, $ssl);
 	}
-	public function __construct($url) {
-		if(empty($url))
+	public function __construct($host, $ssl=FALSE) {
+		if(empty($host))
 			throw new SourceNotAvailableException('Source url must be provided!');
-		$this->url = $url;
+		if(\strpos($host, '://') === FALSE)
+			$this->url = 'http'.($ssl ? 's' : '' ).'://'.$host;
+		else
+			$this->url = $host;
 	}
 
 
