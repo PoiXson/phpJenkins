@@ -17,6 +17,8 @@ use pxn\phpJenkins\Exceptions\SourceNotAvailableException;
  */
 class SourceTest extends \PHPUnit_Framework_TestCase {
 
+	const TEST_HOST = '127.0.0.1:8080';
+
 
 
 	/**
@@ -24,13 +26,17 @@ class SourceTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testByHost() {
 		// test http://
-		$source = Source::getByHost('127.0.0.1', FALSE);
+		$source = Source::getByHost(self::TEST_HOST, FALSE);
 		$this->assertNotNull($source);
-		$this->assertEquals('http://127.0.0.1', $source->getURL());
+		$this->assertEquals('http://'.self::TEST_HOST, $source->getURL());
 		// test https://
-		$source = Source::getByHost('127.0.0.1', TRUE);
+		$source = Source::getByHost(self::TEST_HOST, TRUE);
 		$this->assertNotNull($source);
-		$this->assertEquals('https://127.0.0.1', $source->getURL());
+		$this->assertEquals('https://'.self::TEST_HOST, $source->getURL());
+		// test default
+		$source = Source::getByHost('http://'.self::TEST_HOST);
+		$this->assertNotNull($source);
+		$this->assertEquals('http://'.self::TEST_HOST, $source->getURL());
 	}
 	/**
 	 * @covers ::getByHost

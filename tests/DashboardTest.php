@@ -17,14 +17,16 @@ use pxn\phpJenkins\Dashboard;
  */
 class DashboardTest extends \PHPUnit_Framework_TestCase {
 
+	const TEST_HOST = '127.0.0.1:8080';
+
 
 
 	public function testConstruct() {
 		// test with sample data
-		$source = SourceFake::getByHost('127.0.0.1');
+		$source = SourceFake::getByHost(self::TEST_HOST);
 		$this->assertNotNull($source);
 		$this->assertEquals('pxn\\phpJenkins\\tests\\SourceFake', \get_class($source));
-		$this->assertEquals('http://127.0.0.1', $source->getURL());
+		$this->assertEquals('http://'.self::TEST_HOST, $source->getURL());
 		$dash = new Dashboard($source);
 		$jobs = $dash->getJobs();
 		$jobA = &$jobs['test-job-A'];
