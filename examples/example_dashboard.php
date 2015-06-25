@@ -26,15 +26,15 @@ try {
 
 	echo '<table border="1" cellpadding="10" width="500">'.EOL;
 	echo '<tr>'.EOL;
-	echo TAB.'<th>Project</th>'.EOL;
-	echo TAB.'<th>State</th>'.EOL;
-	echo TAB.'<th>LastBuild</th>'.EOL;
+	echo TAB.'<th><font size="+1">Project</font></th>'.EOL;
+	echo TAB.'<th><font size="+1">State</font></th>'.EOL;
+	echo TAB.'<th><font size="+1">LastBuild</font></th>'.EOL;
 	echo '</tr>'.EOL;
 
 	$colors = [
 			'GOOD'     => 'green',
 			'FAILED'   => 'red',
-			'BUILDING' => 'white',
+			'BUILDING' => 'orange',
 			'NOTBUILT' => 'gray',
 			'DISABLED' => 'pink'
 	];
