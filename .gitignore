@@ -14,6 +14,10 @@
 **/.classpath
 **/.settings/
 
+coverage-html/
+coverage-xml/
+coverage.txt
+
 *.swp
 .*.swp
 *.out
