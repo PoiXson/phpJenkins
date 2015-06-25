@@ -28,15 +28,15 @@ class SourceTest extends \PHPUnit_Framework_TestCase {
 		// test http://
 		$source = Source::getByHost(self::TEST_HOST, FALSE);
 		$this->assertNotNull($source);
-		$this->assertEquals('http://'.self::TEST_HOST, $source->getURL());
+		$this->assertEquals('http://'.self::TEST_HOST, $source->getHost());
 		// test https://
 		$source = Source::getByHost(self::TEST_HOST, TRUE);
 		$this->assertNotNull($source);
-		$this->assertEquals('https://'.self::TEST_HOST, $source->getURL());
+		$this->assertEquals('https://'.self::TEST_HOST, $source->getHost());
 		// test default
 		$source = Source::getByHost('http://'.self::TEST_HOST);
 		$this->assertNotNull($source);
-		$this->assertEquals('http://'.self::TEST_HOST, $source->getURL());
+		$this->assertEquals('http://'.self::TEST_HOST, $source->getHost());
 	}
 
 
@@ -79,7 +79,7 @@ class SourceTest extends \PHPUnit_Framework_TestCase {
 			new Source('');
 		} catch (SourceNotAvailableException $e) {
 			$this->assertEquals(
-					'Source url must be provided!',
+					'Source host must be provided!',
 					$e->getMessage()
 			);
 			return;

@@ -13,7 +13,7 @@ use pxn\phpJenkins\Exceptions\SourceNotAvailableException;
 
 class Source {
 
-	protected $url;
+	protected $host;
 	protected $jsonCache = [];
 
 
@@ -25,11 +25,11 @@ class Source {
 	}
 	public function __construct($host, $ssl=FALSE) {
 		if(empty($host))
-			throw new SourceNotAvailableException('Source url must be provided!');
+			throw new SourceNotAvailableException('Source host must be provided!');
 		if(\strpos($host, '://') === FALSE)
-			$this->url = 'http'.($ssl ? 's' : '' ).'://'.$host;
+			$this->host = 'http'.($ssl ? 's' : '' ).'://'.$host;
 		else
-			$this->url = $host;
+			$this->host = $host;
 	}
 
 
@@ -55,7 +55,7 @@ class Source {
 		if(!isset($args['pretty']) || empty($args['pretty']))
 			$args['pretty'] = 'true';
 		// get api url
-		$api_url = $this->url.$path;
+		$api_url = $this->host.$path;
 		if(count($args) > 0) {
 			$api_url .= '?';
 			$first = TRUE;
@@ -100,8 +100,8 @@ class Source {
 
 
 
-	public function getURL() {
-		return $this->url;
+	public function getHost() {
+		return $this->host;
 	}
 
 

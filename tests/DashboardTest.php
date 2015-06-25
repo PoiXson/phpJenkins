@@ -26,7 +26,7 @@ class DashboardTest extends \PHPUnit_Framework_TestCase {
 		$source = SourceFake::getByHost(self::TEST_HOST);
 		$this->assertNotNull($source);
 		$this->assertEquals('pxn\\phpJenkins\\tests\\SourceFake', \get_class($source));
-		$this->assertEquals('http://'.self::TEST_HOST, $source->getURL());
+		$this->assertEquals('http://'.self::TEST_HOST, $source->getHost());
 		$dash = new Dashboard($source);
 		$jobs = $dash->getJobs();
 		$jobA = &$jobs['test-job-A'];
