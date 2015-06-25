@@ -9,8 +9,11 @@
  */
 namespace pxn\phpJenkins\examples;
 
-require('../vendor/autoload.php');
+if(\file_exists(__DIR__.'/../vendor/autoload.php'))
+	require(__DIR__.'/../vendor/autoload.php');
 
+use pxn\phpJenkins\Source;
+use pxn\phpJenkins\Dashboard;
 use pxn\phpJenkins\Exceptions\SourceNotAvailableException;
 
 const EOL = \pxn\phpUtils\Defines::EOL;
