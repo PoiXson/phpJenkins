@@ -7,7 +7,7 @@
  * @author lorenzo at poixson.com
  * @link http://poixson.com/
  */
-namespace pxn\phpUtils\tests;
+namespace pxn\phpJenkins\tests;
 
 use pxn\phpJenkins\BuildState;
 
