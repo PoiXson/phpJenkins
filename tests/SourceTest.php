@@ -26,17 +26,23 @@ class SourceTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testByHost() {
 		// test http://
-		$source = Source::getByHost(self::TEST_HOST, FALSE);
-		$this->assertNotNull($source);
-		$this->assertEquals('http://'.self::TEST_HOST, $source->getHost());
+		$this->assertEquals(
+				'http://'.self::TEST_HOST,
+				Source::getByHost(self::TEST_HOST, FALSE)
+					->getHost()
+		);
 		// test https://
-		$source = Source::getByHost(self::TEST_HOST, TRUE);
-		$this->assertNotNull($source);
-		$this->assertEquals('https://'.self::TEST_HOST, $source->getHost());
+		$this->assertEquals(
+				'https://'.self::TEST_HOST,
+				Source::getByHost(self::TEST_HOST, TRUE)
+					->getHost()
+		);
 		// test default
-		$source = Source::getByHost('http://'.self::TEST_HOST);
-		$this->assertNotNull($source);
-		$this->assertEquals('http://'.self::TEST_HOST, $source->getHost());
+		$this->assertEquals(
+				'http://'.self::TEST_HOST,
+				(new Source('http://'.self::TEST_HOST, TRUE))
+					->getHost()
+		);
 	}
 
 
@@ -48,8 +54,8 @@ class SourceTest extends \PHPUnit_Framework_TestCase {
 			$source->getJson();
 		} catch (SourceNotAvailableException $e) {
 			$this->assertEquals(
-					\sprintf('Source could not be downloaded '.
-							'from http://%s/view/All/api/json/?pretty=true',
+					\sprintf('Source could not be downloaded from '.
+							'http://%s/view/All/api/json/?pretty=true',
 							self::TEST_HOST),
 					$e->getMessage()
 			);

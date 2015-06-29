@@ -26,10 +26,10 @@ class Source {
 	public function __construct($host, $ssl=FALSE) {
 		if(empty($host))
 			throw new SourceNotAvailableException('Source host must be provided!');
-		if(\strpos($host, '://') === FALSE)
-			$this->host = 'http'.($ssl ? 's' : '' ).'://'.$host;
-		else
-			$this->host = $host;
+		$this->host =
+				\strpos($host, '://') === FALSE
+				? ('http'.($ssl ? 's' : '' ).'://'.$host)
+				: $host;
 	}
 
 
@@ -83,7 +83,7 @@ class Source {
 		unset($data);
 		if(!$json) {
 			throw new SourceNotAvailableException(
-					\sprintf('Downloaded source seems to be invalid JSON! %s', $api_url)
+					\sprintf('Downloaded source seems to be invalid JSON! from %s', $api_url)
 			);
 		}
 		// cache it
@@ -95,7 +95,7 @@ class Source {
 
 
 	protected function wget($url) {
-		return \file_get_contents($url);
+		return \file_get_contents($url); // @codeCoverageIgnore
 	}
 
 
