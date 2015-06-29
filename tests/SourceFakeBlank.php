@@ -13,7 +13,7 @@ class SourceFakeBlank extends \pxn\phpJenkins\Source {
 
 
 
-	protected function wget() {
+	protected function wget($url) {
 		return '';
 	}
 

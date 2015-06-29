@@ -13,7 +13,7 @@ class SourceFake extends \pxn\phpJenkins\Source {
 
 
 
-	protected function wget() {
+	protected function wget($url) {
 		return <<<EOF
 {
   "description" : null,
