@@ -56,6 +56,22 @@ class SourceTest extends \PHPUnit_Framework_TestCase {
 			return;
 		}
 	}
+	public function testSource_InvalidJson() {
+		$source = new SourceFakeInvalid(self::TEST_HOST);
+		$this->assertNotNull($source);
+		try {
+			$source->getJson();
+		} catch (SourceNotAvailableException $e) {
+			$this->assertEquals(
+					\sprintf('Downloaded source seems to be invalid JSON! from '.
+							'http://%s/view/All/api/json/?pretty=true',
+							self::TEST_HOST),
+					$e->getMessage()
+			);
+			return;
+		}
+		$this->assertTrue(FALSE, 'Failed to throw expected exception');
+	}
 
 
 
