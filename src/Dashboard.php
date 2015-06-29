@@ -31,11 +31,8 @@ class Dashboard {
 		$jobs = array();
 		foreach($this->json->jobs as $jsonJob) {
 			$jobs[$jsonJob->name] = [
-					'display' =>
-						empty($jsonJob->displayName)
-						? $jsonJob->name
-						: $jsonJob->displayName,
-					'state' => BuildState::getByValue($jsonJob->color),
+					'display'   => $jsonJob->displayName,
+					'state'     => BuildState::getByValue($jsonJob->color),
 					'lastbuild' =>
 						$jsonJob->lastBuild == NULL
 						? NULL
