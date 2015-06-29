@@ -10,7 +10,7 @@
 namespace pxn\phpJenkins\examples;
 
 if(\file_exists(__DIR__.'/../vendor/autoload.php'))
-	require(__DIR__.'/../vendor/autoload.php');
+	require_once(__DIR__.'/../vendor/autoload.php');
 
 use pxn\phpJenkins\Source;
 use pxn\phpJenkins\Dashboard;
