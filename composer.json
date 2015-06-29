@@ -22,7 +22,7 @@
 	"autoload-dev": {
 		"psr-4": {
 			"pxn\\phpJenkins\\tests\\":    "tests/",
-			"pxn\\phpJenkins\\Examples\\": "examples/"
+			"pxn\\phpJenkins\\examples\\": "examples/"
 		}
 	},
 	"archive": {
